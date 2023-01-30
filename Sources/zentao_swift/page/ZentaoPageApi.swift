@@ -8,7 +8,7 @@
 import Foundation
 import Logging
 
-struct ZentaoPageApi{
+public struct ZentaoPageApi{
     let logger = Logger(label:"ZentaoPageApi")
     var url:URL
     init(url: URL) {
