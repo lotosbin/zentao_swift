@@ -11,9 +11,9 @@ import Logging
 public struct ZentaoPageApi{
     let logger = Logger(label:"ZentaoPageApi")
     var url:URL
-    init(url: URL) {
+    public init(url: URL) {
         self.url = url
     }
     var request = ZentaoRequest()
-
+    var isLogined:Bool = false
 }

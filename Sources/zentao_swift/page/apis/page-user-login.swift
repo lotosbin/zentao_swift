@@ -8,7 +8,10 @@
 import Foundation
 
 extension ZentaoPageApi{
-    func userLogin(account:String,password:String) async {
+    public mutating func userLogin(account:String,password:String) async {
+        if(isLogined){
+            return
+        }
         let verifyRand = await getLoginVerifyRand()
         logger.info("userLogin verifyRand:\(verifyRand)")
         let r = await request.post(path: url.absoluteString + "/user-login.html", body:     [
@@ -19,6 +22,7 @@ extension ZentaoPageApi{
             "keepLogin":"1",
         ])
         logger.info("userLogin result:\(r)")
+        isLogined = true
     }
     private func getLoginVerifyRand() async -> String {
         let s = await request.get(path: url.absoluteString + "/user-login.html")

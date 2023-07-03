@@ -1,7 +1,7 @@
 import Foundation
 
 extension ZentaoPageApi{
-    func myTask() async -> MyTaskData {
+    public func myTask() async -> MyTaskData {
         let response = await request.get(path: url.absoluteString + "/my-task.json")
         let r =  try! JSONDecoder().decode(MyTaskResult.self,from:Data(response.utf8))
         let d =  try! JSONDecoder().decode(MyTaskData.self,from:Data(r.data!.utf8))
@@ -17,33 +17,33 @@ extension ZentaoPageApi{
         var data: String?
         
     }
-    struct MyTaskData :Codable{
-        var title:String?
-        struct TaskData :Codable{
-            var id:String?
-            var name:String?
-            var product:String?
-            var branch:String?
-            var module:String?
-            var project:String?
-            var plan:String?
-            var story:String?
-            var status:String?
-            var activatedDate:String?
-            var openedBy:String?
-            var openedDate:String?
-            var assignedTo:String?
-            var assignedDate:String?
-            var canceledBy:String?
-            var canceledDate:String?
-            var finishedBy:String?
-            var finishedDate:String?
-            var closedBy:String?
-            var closedDate:String?
-            var lastEditedBy:String?
-            var lastEditedDate:String?
+    public struct MyTaskData :Codable{
+        public var title:String?
+        public struct TaskData :Codable{
+           public var id:String?
+           public var name:String?
+           public var product:String?
+           public var branch:String?
+           public var module:String?
+           public var project:String?
+           public var plan:String?
+           public var story:String?
+           public var status:String?
+           public var activatedDate:String?
+           public var openedBy:String?
+           public var openedDate:String?
+           public var assignedTo:String?
+           public var assignedDate:String?
+           public var canceledBy:String?
+           public var canceledDate:String?
+           public var finishedBy:String?
+           public var finishedDate:String?
+           public var closedBy:String?
+           public var closedDate:String?
+           public var lastEditedBy:String?
+           public var lastEditedDate:String?
         }
-        var tasks:[TaskData]
+        public var tasks:[TaskData]
     }
 }
 
